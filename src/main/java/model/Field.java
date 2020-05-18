@@ -24,4 +24,8 @@ public class Field {
         this.height = height;
         this.width = width;
     }
+
+    public void setField(int[][] field) {
+        this.field = field;
+    }
 }
