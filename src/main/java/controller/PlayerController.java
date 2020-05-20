@@ -34,10 +34,6 @@ public class PlayerController {
         Figure figure1 = player1.getFigure();
         int[][] ourfield = game.getField().getField();
         MoveController.makeMove(stepx, stepy, game.getField());
-        if (stepy + 1 < game.getField().getHeight()) {
-            MoveController.makeMove(stepx, stepy + 1, game.getField());
-        } else MoveController.makeMove(stepx, stepy - 1, game.getField());
-        MoveController.makeMove(stepx, stepy, game.getField());
         if (WinnerController.countfigure(figure1, stepx, stepy, 1, 0, game.getField()) >= 2) {
             if (ourfield[stepx + 2][stepy] == 0 || ourfield[stepx - 2][stepy] == 0) {
                 if (stepx + 2 < game.getField().getWidth()) {
@@ -123,6 +119,13 @@ public class PlayerController {
         Figure figure2 = player2.getFigure();
         int[][] ourfield = game.getField().getField();
         if (b = false) {
+            if (WinnerController.countfigure(figure1, stepx, stepy, 1, 0, game.getField()) == 1) {
+                if (ourfield[stepx + 2][stepy] == 0 || ourfield[stepx - 2][stepy] == 0) {
+                    if (stepx + 2 < game.getField().getWidth()) {
+                        MoveController.makeMove(stepx + 1, stepy, game.getField());
+                    } else MoveController.makeMove(stepx - 1, stepy, game.getField());
+                }
+            }
             if (WinnerController.countfigure(figure2, stepx, stepy, 1, 0, game.getField()) >= 2) {
                 if (ourfield[stepx + 2][stepy] == 0 || ourfield[stepx - 2][stepy] == 0) {
                     if (stepx + 2 < game.getField().getWidth()) {
