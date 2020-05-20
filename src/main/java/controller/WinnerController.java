@@ -51,7 +51,7 @@ public class WinnerController {
                 arrayList.add(u);
             }
         }
-        //по неправильной диагонали
+        //по побочной диагонали
         for (int h = 0; h < ourfield.length - sizewinstep + 1; h++) {
             for (int t = 0; t < ourfield.length - sizewinstep + 1; t++) {
                 u = 0;
@@ -72,6 +72,28 @@ public class WinnerController {
             }
         }
         return gameStatus;
+    }
+
+
+    public static int countfigure(Figure figureplayer, int width, int height, int cellx, int celly, Field field) {
+        int l, k;
+        int figurecounter = 1;
+        int[][] ourfield = field.getField();
+        l = width + cellx;
+        k = height + celly;
+        while (l >= 0 && l < xsize && k >= 0 && k < ysize && ourfield[l][k] == Player.returnnumberfigure(figureplayer)) {
+            figurecounter++;
+            l += cellx;
+            k += celly;
+        }
+        l = width - cellx;
+        k = height - celly;
+        while (l >= 0 && l < xsize && k >= 0 && k < ysize && ourfield[l][k] == Player.returnnumberfigure(figureplayer)) {
+            figurecounter++;
+            l -= cellx;
+            k -= celly;
+        }
+        return figurecounter;
     }
 }
         //реализация без свертки
