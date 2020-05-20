@@ -37,6 +37,7 @@ public class PlayerController {
         if (stepy + 1 < game.getField().getHeight()) {
             MoveController.makeMove(stepx, stepy + 1, game.getField());
         } else MoveController.makeMove(stepx, stepy - 1, game.getField());
+        MoveController.makeMove(stepx, stepy, game.getField());
         if (WinnerController.countfigure(figure1, stepx, stepy, 1, 0, game.getField()) >= 2) {
             if (ourfield[stepx + 2][stepy] == 0 || ourfield[stepx - 2][stepy] == 0) {
                 if (stepx + 2 < game.getField().getWidth()) {
